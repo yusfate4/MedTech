@@ -1,12 +1,57 @@
-import React from 'react';
+import React from "react";
+import aboutImage from "../assets/about.png";
 
-const About = () => {
+function About() {
   return (
-    <section className="container mx-auto text-center py-20">
-      <h2 className="text-3xl font-bold mb-6">About Us</h2>
-      <p className="text-lg">MedTech is dedicated to providing innovative healthcare solutions...</p>
-    </section>
+    <div className="bg-white px-6 md:px-20 py-6">
+      {/* max-w-4xl */}
+      <div className=" mx-auto">
+        <div className="flex flex-col md:flex-row items-center">
+          <div className="flex flex-col md:text-left lg:w-full md:w-1/2 md:pr-8">
+            <h2 className="text-3xl md:text-5xl text-black font-bold mb-4">
+              Who is <span className="text-[#064B75]">Tell-A-Doc?</span>
+            </h2>
+            <p className="text-black mb-4">
+              Tell-A-Doc is a MedTech company that’s here to solve the problem
+              of frequent hospital visits, providing effective, efficient, and
+              affordable online medical services regardless of location.
+              <br />
+              We connect users to medical professionals of different
+              specializations.
+            </p>
+            <div className="flex items-center mb-4 md:mb-0">
+              <img
+                src={aboutImage}
+                alt="Doctor"
+                className="w-24 h-24 md:w-64 md:h-64 rounded-full mr-4"
+              />
+              <div className="flex flex-col ">
+                <div className="lg:w-2/5">
+                <h3 className="text-lg md:text-xl  text-black font-bold mb-2">
+                  Our <span className="text-[#064B75]">Mission:</span>
+                </h3>
+                <p className="text-black mb-4 ">
+                  To bring healthcare to everyone's doorstep, enabling access
+                  from the comfort of home.
+                </p>
+                </div>
+                <div className="ml-auto lg:w-2/5">
+                  <h3 className="text-lg md:text-xl text-black font-bold mb-2">
+                    Our <span className="text-[#064B75]">Vision:</span>
+                  </h3>
+                  <p className="text-black">
+                    To create the most efficient and reliable online hospital
+                    where patients and practitioners collaborate to sustain
+                    lives.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
-};
+}
 
 export default About;

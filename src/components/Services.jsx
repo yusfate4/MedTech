@@ -1,24 +1,99 @@
-import React from 'react';
+import React from "react";
+import doc1 from "../assets/doc1.png";
+import doc2 from "../assets/doc2.png";
+import doc3 from "../assets/doc3.png";
+import doc4 from "../assets/doc4.png";
 
 const Services = () => {
   return (
-    <section id="services" className="container mx-auto py-20">
-      <h2 className="text-3xl font-bold mb-6 text-center">Our Services</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div className="p-6 bg-white shadow-md rounded-md">
-          <h4 className="text-xl font-bold mb-2">Service One</h4>
-          <p className="text-gray-700">Description of service one.</p>
+    <div className="px-4 py-8 md:px-24 bg-white">
+      <h2 className="text-3xl md:text-5xl text-black font-bold mb-4 lg:text-center text-center md:text-left">
+        Why choose <span className="text-[#064B75]">Us?</span>
+      </h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Service Cards */}
+        <div className="bg-[#0099FAA6] p-4 rounded shadow-md text-center">
+          <div className="flex items-center justify-center mb-2">
+            <img
+              src={doc1}
+              alt="Doctor"
+              className="w-12 h-12 md:w-16 md:h-16 rounded-full mr-4"
+            />
+            <div className="text-lg font-bold">Choose a doctor</div>
+          </div>
+          <p className="text-sm md:text-base">
+            Choose your doctor based on experience, ratings, and specialization.
+          </p>
         </div>
-        <div className="p-6 bg-white shadow-md rounded-md">
-          <h4 className="text-xl font-bold mb-2">Service Two</h4>
-          <p className="text-gray-700">Description of service two.</p>
+        <div className="bg-[#0099FAA6] p-4 rounded shadow-md text-center">
+          <div className="flex items-center justify-center mb-2">
+            <img
+              src={doc2}
+              alt="Doctor"
+              className="w-12 h-12 md:w-16 md:h-16 rounded-full mr-4"
+            />
+            <div className="text-lg font-bold">In App Chat</div>
+          </div>
+          <p className="text-sm md:text-base">
+            Chat with doctors online, see their availability, and get instant responses.
+          </p>
         </div>
-        <div className="p-6 bg-white shadow-md rounded-md">
-          <h4 className="text-xl font-bold mb-2">Service Three</h4>
-          <p className="text-gray-700">Description of service three.</p>
+        <div className="bg-[#0099FAA6] p-4 rounded shadow-md text-center">
+          <div className="flex items-center justify-center mb-2">
+            <img
+              src={doc3}
+              alt="Doctor"
+              className="w-12 h-12 md:w-16 md:h-16 rounded-full mr-4"
+            />
+            <div className="text-lg font-bold">Drug prescription & refill</div>
+          </div>
+          <p className="text-sm md:text-base">
+            Get prescriptions and refills conveniently from medical professionals.
+          </p>
+        </div>
+        <div className="bg-[#0099FAA6] p-4 rounded shadow-md text-center">
+          <div className="flex items-center justify-center mb-2">
+            <img
+              src={doc4}
+              alt="Doctor"
+              className="w-12 h-12 md:w-16 md:h-16 rounded-full mr-4"
+            />
+            <div className="text-lg font-bold">Data security</div>
+          </div>
+          <p className="text-sm md:text-base">
+            Your medical records and information are secure and private.
+          </p>
         </div>
       </div>
-    </section>
+
+      {/* Benefits */}
+      <div className="mt-10 lg:mx-auto bg-[#F1F1E6] lg:w-3/5 p-6 rounded-lg shadow-md">
+        <h3 className="text-2xl text-black font-bold mb-4">Benefits</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="bg-[#0099FAA6] p-4 rounded shadow-md">
+            Medication tracker
+          </div>
+          <div className="bg-[#0099FAA6] p-4 rounded shadow-md">
+            Access to Electronic Health Records (EHR)
+          </div>
+          <div className="bg-[#0099FAA6] p-4 rounded shadow-md">
+            Home delivery for medications
+          </div>
+          <div className="bg-[#0099FAA6] p-4 rounded shadow-md">
+            Visual Consultation
+          </div>
+          <div className="bg-[#0099FAA6] p-4 rounded shadow-md">
+            Educational Opportunities
+          </div>
+          <div className="bg-[#0099FAA6] p-4 rounded shadow-md">
+            Time Efficiency
+          </div>
+          <div className="bg-[#0099FAA6] p-4 rounded shadow-md">
+            Laboratory investigation review
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

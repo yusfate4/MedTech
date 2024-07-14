@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+#virtual environment
+/__pycache__/
+memo/

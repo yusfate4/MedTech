@@ -1,4 +1,7 @@
+// src/components/Header.jsx
+
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -8,13 +11,13 @@ function Header() {
       <header className="text-black pt-6 md:pt-14 px-6 md:px-14">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <h1>
-            <a
-              href="#"
+            <Link
+              to="/"
               className="text-xl hover:text-blue-500 font-bold"
               style={{ color: "#064B75" }}
             >
               Tell-A-Doc
-            </a>
+            </Link>
           </h1>
 
           <nav className="hidden md:flex space-x-4 md:space-x-20">
@@ -33,12 +36,12 @@ function Header() {
             <a href="#faq" className="hover:text-blue-600">
               FAQ
             </a>
-            <a href="#login" className="hover:text-gray-300">
+            <Link to="/login" className="hover:text-gray-300">
               Login
-            </a>
-            <a href="#signup" className="hover:text-gray-300">
+            </Link>
+            <Link to="/signup" className="hover:text-gray-300">
               Sign Up
-            </a>
+            </Link>
           </nav>
 
           <button
@@ -88,20 +91,20 @@ function Header() {
               >
                 FAQ
               </a>
-              <a
-                href="#login"
+              <Link
+                to="/login"
                 className="hover:text-gray-300"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Login
-              </a>
-              <a
-                href="#signup"
+              </Link>
+              <Link
+                to="/signup"
                 className="hover:text-gray-300"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Sign Up
-              </a>
+              </Link>
             </div>
           </nav>
         )}

@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -6,14 +7,15 @@ import Services from "./components/Services";
 import Review from "./components/Review";
 import Consultation from "./components/Consultation";
 // import FAQ from "./components/FAQ";
-// import Login from "./components/Login";
-// import Signup from "./components/Signup";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
 import Footer from "./components/Footer";
+import OnBoarding from "./components/OnBoarding";
 import "./index.css";
 
-function App() {
+function MainPage() {
   return (
-    <div className="App">
+    <div>
       <Header />
       <main>
         <section id="hero">
@@ -31,18 +33,24 @@ function App() {
         <section id="consultation">
           <Consultation />
         </section>
-        {/* <section id="faq">
-          <FAQ />
-        </section>
-        <section id="login">
-          <Login />
-        </section>
-        <section id="signup">
-          <Signup />
-        </section> */}
       </main>
       <Footer />
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+
+        <Route path="/onboarding" element={<OnBoarding />} />
+        {/* Add other routes here */}
+      </Routes>
+    </Router>
   );
 }
 

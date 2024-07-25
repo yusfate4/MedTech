@@ -102,6 +102,7 @@ const SignUp = () => {
             <button
               type="submit"
               className="w-full bg-[#064B75] text-white py-2 rounded-md hover:bg-blue-800"
+              onClick={() => navigate("/onboarding")}
             >
               Continue
             </button>

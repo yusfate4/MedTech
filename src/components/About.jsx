@@ -1,6 +1,8 @@
 import React from "react";
 import aboutImage from "../assets/about.png";
 import AnimatedSection from "./AnimatedSection";
+import americanDoctor from "../assets/american-doctor.png";
+
 
 function About() {
   return (
@@ -25,12 +27,12 @@ function About() {
             <AnimatedSection>
               <div className="flex items-center mb-4 md:mb-0">
                 <img
-                  src={aboutImage}
+                  src={americanDoctor }
                   alt="Doctor"
-                  className="w-24 h-24 md:w-64 md:h-64 rounded-full mr-4"
+                  className="w-24 h-24 md:w-64 md:h-auto mr-4"
                 />
                 <div className="flex flex-col ">
-                  <div className="lg:w-2/5">
+                  <div className="lg:w-2/5 lg:ml-32">
                     <h3 className="text-lg md:text-xl  text-black font-bold mb-2">
                       Our <span className="text-[#064B75]">Mission:</span>
                     </h3>

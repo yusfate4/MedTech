@@ -1,5 +1,3 @@
-// src/components/Header.jsx
-
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -7,7 +5,7 @@ function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <div className="bg-white">
+    <div className="bg-transparent">
       <header className="text-black pt-6 md:pt-14 px-6 md:px-14">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <h1>

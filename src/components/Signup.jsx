@@ -43,7 +43,7 @@ const SignUp = () => {
 
   return (
     <div className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-white">
-      <div className="px-20 pt-8 z-10 bg-gradient-to-r from-[#0099FA] to-[#a0b2bd86] w-full md:w-1/2">
+      <div className="px-2 pt-8 z-10 bg-gradient-to-r from-[#0099FA] to-[#a0b2bd86] w-full md:w-1/2">
         <div className="text-center">
           <h1 className="text-sm text-left font-bold">Tell-A-Doc</h1>
           <p className="text-3xl font-bold">Get started......</p>
@@ -54,19 +54,21 @@ const SignUp = () => {
           />
         </div>
       </div>
-      <div className="px-6 md:px-16 lg:px-32 bg-white flex items-center justify-center w-full ">
-        <div className="w-full">
-          <div className="flex items-center justify-end gap-10">
-            <h2 className="text-2xl text-black font-bold mb-6 text-center">
+      <div className="px-6 md:px-16 lg:px-32 py-14 bg-white flex items-center justify-center w-full ">
+        <div className="w-full ">
+          <div className="flex flex-col items-center pb-8 md:flex-row md:justify-end gap-4 md:gap-10">
+            <h2 className="text-2xl text-black font-bold mb-4 md:mb-6 text-center md:text-left">
               Create Account
             </h2>
+
             <button
               type="submit"
-              className="w-1/3  bg-[#064B75] py-2 rounded-md hover:bg-blue-800"
+              className="w-full md:w-1/3 bg-[#064B75] text-white py-2 rounded-md hover:bg-blue-800 transition-colors duration-300"
             >
               Register as a doctor
             </button>
           </div>
+
           <form onSubmit={formik.handleSubmit} className="space-y-4">
             <div className="flex flex-col md:flex-row md:space-x-4">
               <div className="w-full md:w-1/2">
@@ -134,7 +136,7 @@ const SignUp = () => {
                 </div>
               ) : null}
             </div>
-            <div className="flex flex-col md:flex-row md:space-x-4">
+            <div className="flex flex-col gap-5 md:flex-row md:space-x-4">
               <div className="w-full md:w-1/2 mt-4 md:mt-0">
                 <select
                   name="gender"

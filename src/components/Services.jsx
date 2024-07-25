@@ -15,7 +15,7 @@ const Services = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Service Cards */}
           <AnimatedSection>
-            <div className="bg-[#0099FAA6] p-4 rounded shadow-md text-center">
+            <div className="bg-[#064B75] p-4 rounded shadow-md text-center">
               <div className="flex items-center justify-center mb-2">
                 <img
                   src={doc1}
@@ -31,7 +31,7 @@ const Services = () => {
             </div>
           </AnimatedSection>
           <AnimatedSection>
-            <div className="bg-[#0099FAA6] p-4 rounded shadow-md text-center">
+            <div className="bg-[#064B75] p-4 rounded shadow-md text-center">
               <div className="flex items-center justify-center mb-2">
                 <img
                   src={doc2}
@@ -47,7 +47,7 @@ const Services = () => {
             </div>
           </AnimatedSection>
           <AnimatedSection>
-            <div className="bg-[#0099FAA6] p-4 rounded shadow-md text-center">
+            <div className="bg-[#064B75] p-4 rounded shadow-md text-center">
               <div className="flex items-center justify-center mb-2">
                 <img
                   src={doc3}
@@ -65,7 +65,7 @@ const Services = () => {
             </div>
           </AnimatedSection>
           <AnimatedSection>
-            <div className="bg-[#0099FAA6] p-4 rounded shadow-md text-center">
+            <div className="bg-[#064B75] p-4 rounded shadow-md text-center">
               <div className="flex items-center justify-center mb-2">
                 <img
                   src={doc4}
@@ -87,25 +87,25 @@ const Services = () => {
         <div className="mt-10 lg:mx-auto bg-[#F1F1E6] lg:w-3/5 p-6 rounded-lg shadow-md">
           <h3 className="text-2xl text-black font-bold mb-4">Benefits</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="bg-[#0099FAA6] p-4 rounded shadow-md">
+            <div className="bg-[#064B75] p-4 rounded shadow-md">
               Medication tracker
             </div>
-            <div className="bg-[#0099FAA6] p-4 rounded shadow-md">
+            <div className="bg-[#064B75] p-4 rounded shadow-md">
               Access to Electronic Health Records (EHR)
             </div>
-            <div className="bg-[#0099FAA6] p-4 rounded shadow-md">
+            <div className="bg-[#064B75] p-4 rounded shadow-md">
               Home delivery for medications
             </div>
-            <div className="bg-[#0099FAA6] p-4 rounded shadow-md">
-              Visual Consultation
+            <div className="bg-[#064B75] p-4 rounded shadow-md">
+              Virtual Consultation
             </div>
-            <div className="bg-[#0099FAA6] p-4 rounded shadow-md">
+            <div className="bg-[#064B75] p-4 rounded shadow-md">
               Educational Opportunities
             </div>
-            <div className="bg-[#0099FAA6] p-4 rounded shadow-md">
+            <div className="bg-[#064B75] p-4 rounded shadow-md">
               Time Efficiency
             </div>
-            <div className="bg-[#0099FAA6] p-4 rounded shadow-md">
+            <div className="bg-[#064B75] p-4 rounded shadow-md">
               Laboratory investigation review
             </div>
           </div>

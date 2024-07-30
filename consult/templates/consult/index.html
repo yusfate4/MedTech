@@ -1,0 +1,26 @@
+<!-- {% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        <li><a href="/consult/{{ question.id }}/">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %} -->
+
+
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'consult/style.css' %}">
+
+
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        <li><a href="{% url 'consult:detail' question.id %}">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+

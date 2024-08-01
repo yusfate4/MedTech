@@ -24,4 +24,4 @@ APPLY MIGRATIONS AND START SERVER:
 OPEN BROWSER TO VIEW THE PROJECT:
     Using any of your Browsers open the localhost url pointing to the port number you have chosen or the default port: 8000
     Then add "../consult/" to the localhost url to view the consult app.
-    Alternatively, add "../Admin/" to the localhost url to view the Superadmin page.
+    Alternatively, add "../Admin/" to the localhost url to view the Superadmin page (username and password is provided to the Project Manager)

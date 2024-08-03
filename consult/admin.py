@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Choice, Question
+from .models import Choice, Question, Doctor, Patient
 
 # Register your models here.
 # class QuestionAdmin(admin.ModelAdmin):
@@ -53,3 +53,7 @@ class QuestionAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Question, QuestionAdmin)
+
+
+admin.site.register(Doctor)
+admin.site.register(Patient)

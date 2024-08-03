@@ -34,3 +34,21 @@ class Choice(models.Model):
     votes = models.IntegerField(default=0)
 
 
+class Doctor(models.Model):
+    name = models.CharField(max_length=100)
+    specialization = models.CharField(max_length=100)
+    email = models.EmailField(unique=True)
+    phone_number = models.CharField(max_length=15)
+    
+    def __str__(self):
+        return self.name
+
+class Patient(models.Model):
+    name = models.CharField(max_length=100)
+    date_of_birth = models.DateField()
+    email = models.EmailField(unique=True)
+    phone_number = models.CharField(max_length=15)
+    doctor = models.ForeignKey(Doctor, on_delete=models.SET_NULL, null=True, related_name='patients')
+    
+    def __str__(self):
+        return self.name

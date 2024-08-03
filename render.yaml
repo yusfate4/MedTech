@@ -3,7 +3,7 @@ services:
     name: Tell-A-Doc Backend API
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn mysite_Tell-A-Doc.wsgi:application
+    startCommand: gunicorn mysite.wsgi:application
     envVars:
       - key: PYTHON_VERSION
         value: 3.9

@@ -32,10 +32,6 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # DEBUG = True
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-# ALLOWED_HOSTS = []
-# ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'http://0.0.0.0:10000,localhost,127.0.0.1').split(',')
-
-# ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',')
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'medtech-e8q7.onrender.com,.onrender.com,localhost,127.0.0.1').split(',')
 
 # Application definition
@@ -64,9 +60,6 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 
-# CORS_ALLOWED_ORIGINS = [
-#     "http://localhost:3000",  # or the URL where frontend is running
-# ]
 
 CORS_ALLOW_ALL_ORIGINS = DEBUG  # Allow all origins in development
 if not DEBUG:
@@ -97,12 +90,6 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 
 if os.environ.get('DATABASE_URL'):
     # Production database (PostgreSQL on Render)

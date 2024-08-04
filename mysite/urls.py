@@ -22,15 +22,6 @@ from django.conf import settings
 
 
 
-# urlpatterns = [
-#     path('api/', include('consult.api_urls')),
-#     path('consult/', include('consult.urls')),
-#     path('admin/', admin.site.urls),
-#     path('', RedirectView.as_view(url='/consult/', permanent=True)),
-#     path('home/', RedirectView.as_view(url='/consult/', permanent=True)),
-# ] + debug_toolbar_urls()
-
-
 urlpatterns = [
     path('api/', include('consult.api_urls')),
     path('consult/', include('consult.urls')),

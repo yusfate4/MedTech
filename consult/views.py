@@ -66,11 +66,6 @@ def vote(request, question_id):
     return HttpResponse("You're responding to medical enquiry question number %s." % question_id)
 
 
-# def index(request):
-#     latest_question_list = Question.objects.order_by("-pub_date")[:5]
-#     output = ", ".join([q.question_text for q in latest_question_list])
-#     return HttpResponse(output)
-
 def index(request):
     latest_question_list = Question.objects.order_by("-pub_date")[:5]
     template = loader.get_template("consult/index.html")
@@ -80,13 +75,6 @@ def index(request):
     return HttpResponse(template.render(context, request))
 
 
-# Django provides a shortcut to load a template, simply fill a context and return an HttpResponse object with the result of the rendered template as follows (this eliminates the need to import HttpResponse and loader):
-
-# def index(request):
-#     latest_question_list = Question.objects.order_by("-pub_date")[:5]
-#     context = {"latest_question_list": latest_question_list}
-#     return render(request, "consult/index.html", context)
-
 
 def detail(request, question_id):
     try:
@@ -94,11 +82,6 @@ def detail(request, question_id):
     except Question.DoesNotExist:
         raise Http404("Question does not exist")
     return render(request, "consult/detail.html", {"question": question})
-
-
-# def detail(request, question_id):
-#     question = get_object_or_404(Question, pk=question_id)
-#     return render(request, "polls/detail.html", {"question": question})
 
 
 def vote(request, question_id):

@@ -33,6 +33,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 # ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'http://0.0.0.0:10000,localhost,127.0.0.1').split(',')
+
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',')
 
 
@@ -181,3 +183,7 @@ if not DEBUG:
     CSRF_COOKIE_SECURE = True
     SECURE_BROWSER_XSS_FILTER = True
     SECURE_CONTENT_TYPE_NOSNIFF = True
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+SESSION_COOKIE_SECURE = True  # if using HTTPS
+SESSION_COOKIE_HTTPONLY = True

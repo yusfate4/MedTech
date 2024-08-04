@@ -18,13 +18,27 @@ from django.contrib import admin
 from django.urls import include, path
 from debug_toolbar.toolbar import debug_toolbar_urls
 from django.views.generic import RedirectView
+from django.conf import settings
 
+
+
+# urlpatterns = [
+#     path('api/', include('consult.api_urls')),
+#     path('consult/', include('consult.urls')),
+#     path('admin/', admin.site.urls),
+#     path('', RedirectView.as_view(url='/consult/', permanent=True)),
+#     path('home/', RedirectView.as_view(url='/consult/', permanent=True)),
+# ] + debug_toolbar_urls()
 
 
 urlpatterns = [
     path('api/', include('consult.api_urls')),
     path('consult/', include('consult.urls')),
     path('admin/', admin.site.urls),
-    path('', RedirectView.as_view(url='/consult/', permanent=True)),
-    path('home/', RedirectView.as_view(url='/consult/', permanent=True)),
-] + debug_toolbar_urls()
+    path('', RedirectView.as_view(url='/consult/', permanent=False)),
+    path('home/', RedirectView.as_view(url='/consult/', permanent=False)),
+]
+
+if settings.DEBUG:
+    urlpatterns += debug_toolbar_urls()
+

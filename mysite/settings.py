@@ -35,8 +35,8 @@ DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 # ALLOWED_HOSTS = []
 # ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'http://0.0.0.0:10000,localhost,127.0.0.1').split(',')
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',')
-
+# ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',')
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'medtech-e8q7.onrender.com,.onrender.com,localhost,127.0.0.1').split(',')
 
 # Application definition
 
@@ -202,3 +202,5 @@ LOGGING = {
         'level': 'WARNING',
     },
 }
+
+CSRF_TRUSTED_ORIGINS = ['https://medtech-e8q7.onrender.com', 'https://*.onrender.com']

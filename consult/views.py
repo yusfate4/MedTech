@@ -9,7 +9,12 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 
 from .models import Choice, Question, Doctor, Patient
-from rest_framework import viewsets
+from rest_framework import viewsets, serializers, status
+from django.contrib.auth.models import User
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.authtoken.models import Token
 from .serializers import DoctorSerializer, PatientSerializer, QuestionSerializer, ChoiceSerializer
 
 
@@ -50,21 +55,6 @@ class ResultsView(generic.DetailView):
 
 
 # Create your views here.
-def index(request):
-    return HttpResponse("Hello Dear, You're at the Tell-A-Doc page. Your express ticket to a live interaction with a qualified medical doctor within your locale. Skip the long queues at the hospitals and get medical services delivered to you at home")
-
-def detail(request, question_id):
-    return HttpResponse("You're looking at medical enquiry question number %s." % question_id)
-
-
-def results(request, question_id):
-    response = "This is the response to the medical enquiry question number %s."
-    return HttpResponse(response % question_id)
-
-
-def vote(request, question_id):
-    return HttpResponse("You're responding to medical enquiry question number %s." % question_id)
-
 
 def index(request):
     latest_question_list = Question.objects.order_by("-pub_date")[:5]
@@ -110,3 +100,49 @@ def vote(request, question_id):
 def results(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     return render(request, "consult/results.html", {"question": question})
+
+
+class LogoutView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        request.user.auth_token.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['username', 'password', 'email']
+        extra_kwargs = {'password': {'write_only': True}}
+
+    def create(self, validated_data):
+        user = User.objects.create_user(**validated_data)
+        Token.objects.create(user=user)  # Create a token for the user
+        return user
+
+class RegisterView(APIView):
+    def post(self, request):
+        serializer = UserSerializer(data=request.data)
+        if serializer.is_valid():
+            user = serializer.save()
+            return Response({'token': user.auth_token.key}, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class UserProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'first_name', 'last_name']
+
+class UserProfileView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        serializer = UserProfileSerializer(request.user)
+        return Response(serializer.data)
+
+    def put(self, request):
+        serializer = UserProfileSerializer(request.user, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

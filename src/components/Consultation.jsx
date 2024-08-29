@@ -1,6 +1,5 @@
 import React from "react";
-// import male-doctor from './path-to-doctor-image'; // Replace with actual path to doctor image
-// import healthJourneyImage from './path-to-health-journey-image'; // Replace with actual path to health journey image
+import { Link } from "react-router-dom";
 import maleDoctor from "../assets/male-doctor.png";
 import maleDoctor1 from "../assets/male-doctor1.png";
 
@@ -22,7 +21,7 @@ const Consultation = () => {
             practice on our platform and connect with patients seamlessly.
           </p>
           <button className="bg-[#064B75] text-white px-6 md:px-8 py-2 md:py-3 rounded-full">
-            Apply Now
+            <Link to="/signupdoc">Apply Now</Link>
           </button>
         </div>
       </div>

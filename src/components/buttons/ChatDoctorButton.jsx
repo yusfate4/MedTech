@@ -1,6 +1,3 @@
-// import React from "react";
-
-
 import React from "react";
 import { FaUserMd } from "react-icons/fa"; // Import the doctor icon from react-icons
 

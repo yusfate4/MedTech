@@ -3,9 +3,6 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import americanDoctor from "../assets/american-doctor.png";
-import { FaGoogle, FaFacebook } from "react-icons/fa";
-import LinkBack from "./buttons/LinkBack";
-
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -20,6 +17,11 @@ const SignUp = () => {
       dateOfBirth: "",
       password: "",
       confirmPassword: "",
+      currentAddress: "",
+      qualification: "",
+      specialization: "",
+      resume: null,
+      license: null,
     },
     validationSchema: Yup.object({
       firstName: Yup.string().required("First name is required"),
@@ -36,6 +38,11 @@ const SignUp = () => {
       confirmPassword: Yup.string()
         .oneOf([Yup.ref("password"), null], "Passwords must match")
         .required("Confirm password is required"),
+      currentAddress: Yup.string().required("Current Address is required"),
+      qualification: Yup.string().required("Qualification is required"),
+      specialization: Yup.string().required("Specialization is required"),
+      resume: Yup.mixed().required("Resume is required"),
+      license: Yup.mixed().required("License is required"),
     }),
     onSubmit: (values) => {
       console.log(values);
@@ -58,18 +65,10 @@ const SignUp = () => {
       </div>
       <div className="px-6 md:px-16 lg:px-32 py-14 bg-white flex items-center justify-center w-full ">
         <div className="w-full ">
-          <LinkBack />
-          <div className="flex flex-col items-center pb-8 md:flex-row md:justify-end gap-4 md:gap-10">
-            <h2 className="text-2xl text-black font-bold mb-4 md:mb-6 text-center md:text-left">
-              Create Account
+          <div className="flex flex-col items-center  md:flex-row md:justify-center gap-4 md:gap-10">
+            <h2 className="text-2xl text-black font-bold mb-4 md:mb-6 text-center md:text-center">
+              Registration
             </h2>
-
-            <button
-              type="submit"
-              className="w-full md:w-1/3 bg-[#064B75] text-white py-2 rounded-md hover:bg-blue-800 transition-colors duration-300"
-              onClick={() => navigate("/signupdoc")} >
-              Register as a doctor
-            </button>
           </div>
 
           <form onSubmit={formik.handleSubmit} className="space-y-4">
@@ -123,6 +122,7 @@ const SignUp = () => {
                 </div>
               ) : null}
             </div>
+
             <div>
               <input
                 type="text"
@@ -139,8 +139,9 @@ const SignUp = () => {
                 </div>
               ) : null}
             </div>
+
             <div className="flex flex-col gap-5 md:flex-row md:space-x-4">
-              <div className="w-full md:w-1/2 mt-4 md:mt-0">
+              <div className="w-full md:w-1/2">
                 <select
                   name="gender"
                   className="w-full px-4 py-2 text-gray-400 bg-white border rounded-md"
@@ -175,6 +176,7 @@ const SignUp = () => {
                 ) : null}
               </div>
             </div>
+
             <div>
               <input
                 type="password"
@@ -208,44 +210,179 @@ const SignUp = () => {
                 </div>
               ) : null}
             </div>
+            <div>
+              <input
+                type="text"
+                name="currentAddress"
+                placeholder="Current Address"
+                className="w-full px-4 py-2 text-black bg-white border rounded-md"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.currentAddress}
+              />
+              {formik.touched.currentAddress && formik.errors.currentAddress ? (
+                <div className="text-red-500 text-sm">
+                  {formik.errors.currentAddress}
+                </div>
+              ) : null}
+            </div>
+            <div>
+              <input
+                type="text"
+                name="qualification"
+                placeholder="Qualification"
+                className="w-full px-4 py-2 text-black bg-white border rounded-md"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.qualification}
+              />
+              {formik.touched.qualification && formik.errors.qualification ? (
+                <div className="text-red-500 text-sm">
+                  {formik.errors.qualification}
+                </div>
+              ) : null}
+            </div>
+            <div>
+              <input
+                type="text"
+                name="specialization"
+                placeholder="Specialization"
+                className="w-full px-4 py-2 text-black bg-white border rounded-md"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.specialization}
+              />
+              {formik.touched.specialization && formik.errors.specialization ? (
+                <div className="text-red-500 text-sm">
+                  {formik.errors.specialization}
+                </div>
+              ) : null}
+            </div>
+            <div>
+              <input
+                type="text"
+                name="consultation"
+                placeholder="Consultation Fee"
+                className="w-full px-4 py-2 text-black bg-white border rounded-md"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.consultation}
+              />
+              {formik.touched.consultation && formik.errors.consultation ? (
+                <div className="text-red-500 text-sm">
+                  {formik.errors.consultation}
+                </div>
+              ) : null}
+            </div>
+            <div>
+              <input
+                type="text"
+                name="affiliated "
+                placeholder="Affiliated Hospital"
+                className="w-full px-4 py-2 text-black bg-white border rounded-md"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.affiliated}
+              />
+              {formik.touched.affiliated && formik.errors.affiliated ? (
+                <div className="text-red-500 text-sm">
+                  {formik.errors.affiliated}
+                </div>
+              ) : null}
+            </div>
+            {/* <div className="flex flex-col md:flex-row md:space-x-4">
+              <div className="w-full md:w-1/2">
+                <input
+                  type="file"
+                  name="resume"
+                 
+                  className="w-full px-4 py-2 text-gray-400 bg-white border rounded-md"
+                  onChange={(event) => {
+                    formik.setFieldValue(
+                      "resume",
+                      event.currentTarget.files[0]
+                    );
+                  }}
+                />
+                {formik.touched.resume && formik.errors.resume ? (
+                  <div className="text-red-500 text-sm">
+                    {formik.errors.resume}
+                  </div>
+                ) : null}
+              </div>
+
+              <div className="w-full md:w-1/2">
+                <input
+                  type="file"
+                  name="license"
+                  className="w-full px-4 py-2 text-gray-400 bg-white border rounded-md"
+                  onChange={(event) => {
+                    formik.setFieldValue(
+                      "license",
+                      event.currentTarget.files[0]
+                    );
+                  }}
+                />
+                {formik.touched.license && formik.errors.license ? (
+                  <div className="text-red-500 text-sm">
+                    {formik.errors.license}
+                  </div>
+                ) : null}
+              </div>
+            </div> */}
+
+            {/* File Upload Fields */}
+            <div className="flex flex-col md:flex-row md:space-x-4">
+              <div className="w-full md:w-1/2">
+                <label className="block text-gray-700 text-sm font-bold mb-2">
+                  Resume
+                </label>
+                <input
+                  type="file"
+                  name="resume"
+                  className="w-full px-4 py-2 text-gray-400 bg-white border rounded-md"
+                  onChange={(event) => {
+                    formik.setFieldValue(
+                      "resume",
+                      event.currentTarget.files[0]
+                    );
+                  }}
+                />
+                {formik.touched.resume && formik.errors.resume ? (
+                  <div className="text-red-500 text-sm">
+                    {formik.errors.resume}
+                  </div>
+                ) : null}
+              </div>
+              <div className="w-full md:w-1/2">
+                <label className="block text-gray-700 text-sm font-bold mb-2">
+                  Doctor's License
+                </label>
+                <input
+                  type="file"
+                  name="license"
+                  className="w-full px-4 py-2 text-gray-400 bg-white border rounded-md"
+                  onChange={(event) => {
+                    formik.setFieldValue(
+                      "license",
+                      event.currentTarget.files[0]
+                    );
+                  }}
+                />
+                {formik.touched.license && formik.errors.license ? (
+                  <div className="text-red-500 text-sm">
+                    {formik.errors.license}
+                  </div>
+                ) : null}
+              </div>
+            </div>
             <button
               type="submit"
-              className="w-full bg-[#064B75] text-white py-2 rounded-md hover:bg-blue-800"
+              className="flex justify-center items-center mx-auto w-1/2 bg-[#064B75] text-white py-2 rounded-md hover:bg-blue-800"
             >
-              Create Account
+              Submit
             </button>
           </form>
-          <div className="mt-4">
-            <p className="text-black">
-              Already have an account?{" "}
-              <a
-                href="#"
-                className="text-[#064b75] hover:underline"
-                onClick={() => navigate("/login")}
-              >
-                Login
-              </a>
-            </p>
-          </div>
-          <div className="flex items-center my-4">
-            <hr className="w-full border-gray-300" />
-            <span className="px-4 text-gray-500">OR</span>
-            <hr className="w-full border-gray-300" />
-          </div>
-          <div className="flex flex-col md:flex-row md:justify-around space-y-4 md:space-y-0">
-            <button className="flex gap-4 w-full md:w-auto bg-[#064B75] text-white px-4 py-2 rounded-md hover:bg-blue-700">
-              <FaFacebook size={24} /> Sign up with Facebook
-            </button>
-            <button className="w-full flex gap-4 md:w-auto bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700">
-              <FaGoogle size={24} /> Sign up with Google
-            </button>
-          </div>
-          <p className="text-center mt-4 text-gray-500 text-sm">
-            By signing up you agree to our{" "}
-            <a href="#" className="text-blue-700 hover:underline">
-              Terms of use
-            </a>
-          </p>
         </div>
       </div>
     </div>

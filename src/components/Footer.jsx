@@ -61,16 +61,28 @@ const Footer = () => {
             </a>
           </p>
           <div className="flex space-x-4 mt-4">
-            <a href="#" className="text-white hover:text-gray-400">
+            <a
+              href="https://x.com/Tell_A_Doc"
+              className="text-white hover:text-gray-400"
+            >
               <FaTwitter size={24} />
             </a>
-            <a href="#" className="text-white hover:text-gray-400">
+            <a
+              href="https://www.linkedin.com/in/tell-a-doc-670969314/"
+              className="text-white hover:text-gray-400"
+            >
               <FaLinkedin size={24} />
             </a>
-            <a href="#" className="text-white hover:text-gray-400">
+            <a
+              href="https://www.instagram.com/tell.adoc/"
+              className="text-white hover:text-gray-400"
+            >
               <FaInstagram size={24} />
             </a>
-            <a href="#" className="text-white hover:text-gray-400">
+            <a
+              href="https://www.facebook.com/profile.php?id=61561391154002&mibextid=YIjw0uDPbU8WYW2J"
+              className="text-white hover:text-gray-400"
+            >
               <FaFacebook size={24} />
             </a>
           </div>

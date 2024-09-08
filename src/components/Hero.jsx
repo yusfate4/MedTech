@@ -32,18 +32,7 @@ const Hero = () => {
                 <Link to="/signup">Start</Link>
               </motion.button>
             </div>
-            {/* Chat buttons */}
-            {/* <div className="flex justify-start items-start gap-2 ">
-              <div className="flex gap-2 space-y-0 transform -rotate-12">
-                <ChatDoctorButton text="Chat a Doctor" />
-              </div>
-              <div className="mt-10  transform rotate-12">
-                <ChatDoctorButton text="Book Appointment" />
-              </div>
-              <div className=" transform -rotate-12">
-                <ChatDoctorButton text="Consultation" />
-              </div>
-            </div> */}
+
             <div className="flex justify-start items-start gap-2 ">
               <div className="flex gap-2 space-y-0 transform -rotate-12 animate-float">
                 <ChatDoctorButton text="Chat a Doctor" />

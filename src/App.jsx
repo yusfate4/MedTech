@@ -11,6 +11,12 @@ import Login from "./components/Login";
 import OnBoarding from "./components/OnBoarding";
 import EmailVerification from "./components/password/EmailVerification";
 import "./index.css";
+import PaymentConfirmation from "./components/30-35/PaymentConfirmation";
+import PatientEmr from "./components/30-35/PatientEmr";
+import PatientAppointment from "./components/30-35/PatientAppointment";
+import DocCall from "./components/30-35/DocCall";
+import DocVideoCall from "./components/30-35/DocVideoCall";
+
 
 function App() {
   return (
@@ -26,6 +32,11 @@ function App() {
         <Route path="/signupdoc" element={<SignUpDoc />} />
         <Route path="/login" element={<Login />} />
         <Route path="/onboarding" element={<OnBoarding />} />
+        <Route path="/paymentconfirmation" element={<PaymentConfirmation />} />
+        <Route path="/patientemr" element={<PatientEmr />} />
+        <Route path="/patientappointment" element={<PatientAppointment />} />
+        <Route path="/doccall" element={<DocCall />} />
+        <Route path="/docvideocall" element={<DocVideoCall />} />
       </Routes>
     </Router>
   );

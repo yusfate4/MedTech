@@ -1,0 +1,309 @@
+
+  .icon-head3{
+    display: flex;
+    gap: 2rem;
+  }
+
+  body{
+    background-color: white;
+  }
+  .icon-parts{
+    transition: transform .6s;
+    padding: 0.5rem;
+    height: 3rem;
+  }
+
+  .icon-parts:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+    box-shadow: 2px 2px 2px 2px;
+    border-radius: 50%;
+    background-color: white;
+  }
+  
+
+  .debit-card{
+    display: flex;
+    gap: 10rem;
+    margin-bottom: 1rem;
+  }
+
+  .debit-card-det{
+    display: flex;
+    gap: 1rem;
+  }
+
+  .card-payment{
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .debit-card-main {
+    margin-top: 5rem;
+    
+  }
+  
+  .debit-card {
+    display: flex;
+    gap: 23rem;
+    border: 2px solid #aca9a9;
+    padding: .7rem;
+    width: 34rem;
+    border-radius: .5rem;
+  }
+
+  
+  
+  .debit-card-det {
+
+  }
+  
+  .debit-card-det1 {
+    /* Your styles here */
+  }
+  
+  .debit-info {
+    background-color: rgb(242, 242, 230);
+    margin-top: rem;
+    margin-bottom: 2rem;
+    padding: 4rem;
+    border-radius: .9rem;
+  }
+  
+  .dci-main {
+    border-radius: .3rem;
+    background-color: whitesmoke;
+    box-shadow:2px 2px 2px 2px rgb(179, 176, 176);
+    display: flex;
+    gap: 1rem;
+    padding: .3rem;
+  }
+  
+  #card1 {
+    margin-top: .3rem;
+    border: 1px solid whitesmoke; /* Set the border color */
+    background-color: whitesmoke;
+    outline: none; /* Removes the black outline */
+}
+
+#card1::placeholder {
+    text-align: center;
+}
+
+/* Optional: You can also remove outline on focus */
+#card1:focus {
+    outline: none;
+}
+
+
+  .dci1 {
+    /* Your styles here */
+  }
+  
+  .dci2-main {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+  
+  .dci2 {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    background-color: whitesmoke;
+    padding: .3rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: .3rem;
+    box-shadow:2px 2px 2px 2px rgb(179, 176, 176);
+  }
+  
+  .dci2-2 {
+    display: flex;
+    align-items: center;
+   
+    /* Add some space between the input and the image */
+  }
+  
+  #cvv {
+    flex: 1;
+    padding: 0.5rem;
+    background-color: whitesmoke;
+    border-radius: 4px;
+    width: 7rem;
+  }
+
+  #cvv:focus {
+    outline: none;
+}
+  
+  .cvv-icon {
+    height: 20px; /* Adjust the icon size */
+    width: 20px;  /* Adjust the icon size */
+  }
+  
+  #expiry {
+    padding: 0.5rem;
+    background-color: whitesmoke;
+    border-radius: 4px;
+  }
+
+  #expiry:focus{
+    outline: none;
+  }
+  
+  .dci2 {
+    display: flex;
+  }
+  
+  .dci2-2 {
+        display: flex;
+  }
+  
+  .payment-method {
+    /* Your styles here */
+  }
+  
+  .btn-2 {
+    text-align: center;
+  }
+
+  #proceed{
+    margin-top: 1.5rem;
+    background-color: #278bce;
+    padding: .8rem;
+    width: 15rem;
+    border-radius: .5rem;
+    transition: transform .6s;
+  }
+  
+  #proceed:hover{
+    color: white;
+    transform: scale(1.1);
+    box-shadow:2px 2px 2px 2px rgb(179, 176, 176);
+  }
+  
+  .payment-summary {
+    /* Your styles here */
+  }
+  
+  .summary-card {
+    background-color: whitesmoke;
+    box-shadow:2px 2px 2px 2px rgb(179, 176, 176);
+    border-radius: .5rem;
+    padding: 2.8rem;
+    height: 21.5rem;
+    position: relative;
+  }
+  
+
+  .icon-sum{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8rem;
+  }
+
+  .cn{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+  }
+  .card-content {
+    /* Your styles here */
+  }
+  
+  .card-holder {
+   font-weight: bold;
+  }
+  
+  .card-number {
+    font-weight: bold;
+  }
+  
+  .card-expiry {
+    /* Your styles here */
+  }
+  
+  .cn1{
+    font-weight: bold;
+  }
+  .summary-logo {
+    /* Your styles here */
+  }
+  
+  .payment-summary {
+    position: relative; /* To make it easier to position child elements */
+    padding: 2rem; /* Adjust to your liking */
+  }
+  
+  .summary-card {
+    position: absolute; /* This will place the card on top */
+    top: -20rem; /* Adjust the distance to sit on top of the payment breakdown */
+    left: 50%;
+    margin-top: 22rem;
+    transform: translateX(-50%);
+    background: white; /* Ensure the card has a background */
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 2px 40px 40px 6px rgba(0, 0, 0, 0.1);
+    width: 65%;
+    z-index: 1;
+  }
+  
+  .payment-breakdown {
+    margin-top: 8rem; /* Add enough top margin so the breakdown starts below the card */
+    padding-top:22rem;
+    background: linear-gradient(to bottom, #cce2ee, #278bce);
+    border-radius: 15px;
+    margin-top: rem;
+    padding-left:8rem ;
+    padding-right:8rem ;
+    height: 35rem;
+  }
+  
+  .breakdown-item {
+    display: flex;
+    font-weight: bold;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 16px;
+  }
+  
+  .appointt {
+    margin-right: 3rem;
+    color: #aca9a9;
+  }
+
+  .appointt2{
+    color: #aca9a9;
+  }
+  
+  
+  .total-payment {
+    display: flex;
+    padding: 0.6rem;
+    border-radius: 1.5rem;
+    text-align: center;
+    gap: 16rem;
+    padding-top: .6rem;
+    padding-left: 2rem;
+    background-color: #84c4ee;
+  }
+
+  .mb{
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  #range {
+    /* Your styles here */
+  }
+  
+  #card1 {
+    /* Your styles here */
+  }
+  
+  #expiry {
+    /* Your styles here */
+  }
+  

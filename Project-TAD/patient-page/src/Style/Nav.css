@@ -1,0 +1,45 @@
+body{
+    background-color: whitesmoke;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    }
+
+.navbar{
+    display: block;
+    gap: 3rem;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.6) 20%, #106cc2 100%);
+    width: 12rem;
+    height: 100vh;
+}
+
+.nav-options{
+    margin-bottom:3rem;
+    margin-left: 4rem;
+}
+
+.web-name{
+    margin-bottom: 10rem;
+    margin-left: 3rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+    font-family:sans-serif;
+    color: white;
+}
+
+.web-name:hover{
+    cursor: pointer;
+}
+
+#icon{
+    transition: transform .6s;
+    padding: 0.5rem;
+}
+
+#icon:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+    border-radius: 35%;
+    background-color: white;
+}

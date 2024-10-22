@@ -1,0 +1,191 @@
+.doc-prof {
+    display: flex;
+    gap: 15rem;
+    margin-top: 1.8rem;
+    justify-content: center; /* Centers items horizontally */
+    align-items: center; /* Centers items vertically */
+    height: 50vh; /* Optional: if you want to center it within the full viewport height */
+}
+
+.doc-prof-details {
+    background: linear-gradient(to bottom, #cce2ee, #278bce);
+    padding-right: 20rem;
+    border-top-left-radius:.8rem;
+    border-top-right-radius:.8rem;
+    padding-left: 20rem;
+    height: 35rem; /* Increase height as needed */
+    position: relative; /* Allows absolute positioning for the child */
+    display: flex;
+    justify-content: center; /* To center the image horizontally */
+}
+
+.doc-name{
+    /* font-weight: bold; */
+    text-align: center;
+}
+
+
+.doc-icons{
+    display: flex;
+    gap: 15rem;
+    margin-left: 3rem;
+}
+
+.doc-occupation{
+    font-size: 1.8rem;
+    color:rgb(179, 176, 176);
+    text-align: center;
+}
+
+.doc-prof-details img {
+    position: absolute;
+    bottom: 0; /* Aligns the image with the bottom of the parent */
+    left: 50%;
+    transform: translateX(-50%); /* Centers the image horizontally */
+    padding-bottom: 0; /* No padding at the bottom */
+    margin-top: 1rem; /* Add top margin if needed */
+    /* Add any specific image sizing you need, like width or height */
+    height: 37rem;
+}
+
+.doc-prof-details1{
+    display: flex;
+    font-size: 2.7rem;
+}
+
+.doc-icons{
+    display: flex;
+    gap: 7rem;
+    justify-content: center; /* Centers items horizontally */
+    align-items: center;
+}
+
+.services{
+    display: flex;
+    gap: 2rem;
+}
+
+.doc-exp{
+    display: flex;
+    gap: 2rem;
+}
+
+.star-ratings{
+    display: flex;
+    gap: 1rem;
+    justify-content: center; /* Centers items horizontally */
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+body{
+    font-family: 'Inter', sans-serif;
+    }
+  
+
+.patients{
+    margin-top: 2rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color:rgb(179, 176, 176);
+    text-align: center;
+}
+
+.doc-exp{
+    justify-content: center; /* Centers items horizontally */
+    align-items: center;
+}
+
+.patient2{
+    font-weight: bold;
+    font-size: 1.5rem;
+    color:rgb(0, 0, 0);
+    text-align: center;
+}
+
+.services{
+    justify-content: center; /* Centers items horizontally */
+    align-items: center;
+}
+
+.service{
+    margin-top: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color:rgb(179, 176, 176);
+    text-align: center;
+}
+
+.meeting-head{
+    margin-bottom: .4rem;
+    font-weight: bold;
+}
+
+.meeting-options:hover{
+    color: #278bce;
+    cursor: pointer;
+}
+
+.meeting-head2{
+    margin-top:1rem;
+    font-weight: bold;
+    margin-bottom: .5rem;
+}
+.detail-main1{
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+.service2{
+
+    font-size: 1.5rem;
+    font-weight: bold;
+    color:rgb(0, 0, 0);
+    text-align: center;
+}
+
+.profile{
+    font-size: 2.5rem;
+    font-weight: bolder;
+}
+
+.Prof-main{
+    background-color: rgb(242, 242, 230);
+    padding: 1.2rem;
+    width: 105rem;
+    margin-top: 1.8rem;
+}
+.doc-prof-detail-main{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.meeting-option{
+    display: flex;
+    color:  #969696;
+    gap: 3rem;
+}
+
+.meeting-options{
+    text-align: center;
+    width: 5rem;
+    background-color: white;
+    padding: .5rem;
+}
+
+#book-btn{
+    margin-top: 1.5rem;
+    background-color: #278bce;
+    padding: .5rem;
+    border-radius: .5rem;
+    transition: transform .6s;
+}
+
+.booking-btn{
+    text-align: center;
+}
+
+#book-btn:hover{
+    color: white;
+    transform: scale(1.1);
+    box-shadow:2px 2px 2px 2px rgb(179, 176, 176);
+}

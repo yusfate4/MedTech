@@ -1,0 +1,318 @@
+.icons {
+    display: flex;
+    justify-content: space-between;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    }
+
+.profile-whole{
+    margin-top: rem;
+    margin-left: 2rem;
+    padding: 0.5rem;
+}
+
+
+
+.icon-options {
+    display: flex;
+    align-items: center; /* Center icons and text vertically */
+    gap: 7rem; /* Space between icon and text */
+}
+
+.profile-more-details:hover{
+    cursor: pointer;
+}
+.icon-options img {
+    height: 24px; /* Set fixed height for icons */
+    width: auto;  /* Maintain aspect ratio */
+    transition: transform .6s;
+    height:2rem ;
+}
+
+
+.icon-options img:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+    box-shadow: 2px 2px 2px 2px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+
+#p-image{
+    margin-bottom: 0.2rem;
+}
+
+.patient-name{
+    font-weight: bolder;
+    margin-bottom: 0.2rem;
+}
+
+.patient-id{
+    font-weight: bolder;
+    margin-bottom: 0.4rem;
+}
+
+#id-num{
+    color: rgba(0, 0, 0, .5);
+    margin-bottom: 0.2rem;
+}
+
+.update-btn{
+    padding: 0.7rem;
+    width: 10rem;
+    border-radius: .5rem;
+    background-color: rgb(15, 129, 199);
+    transition: transform .1s;
+    box-shadow: 2px 2px 2px 2px;
+    color: white;
+    
+}
+
+.update-btn:hover{
+    color: black;
+    transform: scale(1.1);
+    cursor: pointer;
+    background-color: white;
+}
+.word {
+    font-size: 4rem; /* Increase the font size for the text */
+    font-weight: bolder;
+    color: rgba(0, 0, 0, .5);
+}
+
+.profile-details {
+    display: flex;
+    gap: 7rem;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(242, 242, 230);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    border-radius: 0.5rem;
+    padding: 2rem;
+    width: 90rem;
+}
+
+.profile-details1 {
+    width: 10rem;
+    text-align: center;
+    position: relative; /* Position relative for tooltip */
+}
+
+.change-photo-label {
+    position: absolute; /* Positioning for the label */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust position */
+    background-color: rgba(0, 0, 0, 0.7); /* Background color */
+    color: white; /* Text color */
+    padding: 0.5rem; /* Padding */
+    border-radius: 0.5rem; /* Rounded corners */
+    white-space: nowrap; /* Prevent text wrapping */
+    opacity: 0.9; /* Slight transparency */
+    cursor: pointer;
+    transition: opacity 0.3s; /* Transition effect */
+}
+
+
+
+.profile-detail2{
+    display: flex;
+    margin-bottom: 1.2rem;
+    gap: 5rem;
+}
+
+.profile-detail3{
+    display: flex;
+    margin-bottom: 1.2rem;
+    gap: 5rem;
+}
+
+.profile-detail4{
+    display: flex;
+    gap: 5rem;
+    margin-bottom: 1.2rem;
+}
+
+.profile-detail5{
+    display: flex;
+    margin-bottom: 1.2rem;
+    gap: 5rem;
+}
+
+
+.profile-detail6{
+    display: flex;
+    margin-bottom: 1.2rem;
+    gap: 5rem;
+}
+
+
+
+.profile-sub-details{
+    color: black;
+    font-weight: bold;
+    
+
+}
+
+.hi{
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+#sub-gender,#sub-DOB,#sub-occupation,#sub-phone,#sub-mail,#sub-adress,#sub-EMN,#sub-relationship,#sub-phone,#sub-adress{
+    color: rgba(0, 0, 0,0.5);
+}
+
+#sub-weight,#sub-height,#sub-BMI,#sub-BG,#sub-BT,#sub-allrg,#sub-diseases,#sub-diet,#sub-med,#sub-ID,#sub-MHC{
+    color: rgba(0, 0, 0, 0.5);
+}
+
+
+
+.profile-stage2{
+    margin-top: 1rem;
+    display: flex;
+    gap: 10rem;
+}
+
+.health-info{
+    background-color: rgb(242, 242, 230);
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, .3);
+    border-radius: .5rem;
+    padding: 2rem;
+    width: 30rem;
+    height: 27.4rem;
+}
+
+.health-info:hover{
+    cursor: pointer;
+}
+
+
+
+.stage-option{
+    display: flex;
+    gap: 3rem;
+}
+
+.vital-signs{
+    background-color: rgb(242, 242, 230);
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, .3);
+    border-radius: .5rem;
+    height: 12rem;
+    width: 32rem;
+    padding: 0.9rem;
+    
+}
+
+.vital-signs:hover{
+    cursor: pointer;
+}
+
+.vi{
+    font-size: 2rem;
+    font-weight: bolder;
+    margin-bottom: 2rem;
+}
+
+.vt-icon{
+    display: flex;
+    gap: 4rem;
+    margin-left: 1.5rem;
+}
+
+
+#vi-icon{
+    margin-left: 1.6rem;
+}
+
+.temp,.h-rate,.bp{
+    font-weight: bold;
+}
+
+
+#temp-rate,#heart-rate,#b-pressure{
+    font-weight: bold;
+    color: rgba(0, 0, 0,0.5);
+    text-align: center;
+}
+
+.test{
+    background-color: rgb(242, 242, 230);
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, .3);
+    border-radius: .5rem;
+    height: 12rem;
+    width: 15rem;
+}
+
+.tst{
+    font-weight: bold;
+    font-size: 1.8rem;
+    margin-left: 1rem;
+}
+
+.prescription-section {
+    position: absolute;
+    right: 13.6rem; /* Aligns the section to the left */
+    margin-top: 2rem;
+    top: 40.6rem;
+    background-color: rgb(242, 242, 230);
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
+    border-radius: 0.5rem;
+    padding: 2rem;
+    width: 50rem; /* Adjust width as needed */
+}
+
+
+.prescription-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.prescription-header h3 {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.add-button {
+    background-color: #0078a0;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.add-button:hover {
+    background-color: #005f7c;
+}
+
+.prescription-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.prescription-table th, .prescription-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.prescription-table th {
+    background-color: #53b3f1; /* Blue for the header */
+    color: white;
+    font-weight: bold;
+}
+
+.prescription-table td {
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.7);
+    background-color: whitesmoke;
+    border-radius: 0.5rem;
+}

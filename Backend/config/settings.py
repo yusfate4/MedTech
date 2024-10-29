@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'corsheaders',
 ]
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',  # replace with your frontend's URL
+    'http://localhost:5173',  # replace with your frontend's URL
 ]
 
 MIDDLEWARE = [

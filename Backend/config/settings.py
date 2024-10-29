@@ -40,6 +40,11 @@ INSTALLED_APPS = [
 
     # local apps
     'accounts',
+    'rest_framework',
+    'corsheaders',
+]
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',  # replace with your frontend's URL
 ]
 
 MIDDLEWARE = [
@@ -50,6 +55,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # local middleware
+    'corsheaders.middleware.CorsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'config.urls'

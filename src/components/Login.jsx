@@ -107,8 +107,15 @@ const SignUp = () => {
               Continue
             </button>
           </form>
-          <div className="mt-0">
-            <p className="text-black text-right">Forgot Password</p>
+          <div className="mt-3 text-right">
+          <a
+                href="#"
+                className="text-black text-right hover:underline"
+                onClick={() => navigate("/forgetpassword ")}
+              >
+               Forgot Password
+              </a>
+            {/* <p className="text-black text-right">Forgot Password</p> */}
           </div>
           <div className="flex items-center my-4">
             <hr className="w-full border-gray-300" />

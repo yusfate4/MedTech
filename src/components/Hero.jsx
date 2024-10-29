@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import heroImage from "../assets/hero-image.png";
 import ChatDoctorButton from "./buttons/ChatDoctorButton";
@@ -24,22 +25,22 @@ const Hero = () => {
             </p>
             <div className="text-center flex items-center justify-center mx-auto md:text-left py-10">
               <motion.button
-                className="bg-[#064B75] text-white px-8 md:px-12 py-2 rounded-full"
+                className="bg-[#064B75] text-white px-8 md:px-12 py-2 rounded-full hover:bg-[#0d8fe0] hover:border-none hover:text-white"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
-                Start
+                <Link to="/signup">Start</Link>
               </motion.button>
             </div>
-            {/* Chat buttons */}
+
             <div className="flex justify-start items-start gap-2 ">
-              <div className="flex gap-2 space-y-0 transform -rotate-12">
+              <div className="flex gap-2 space-y-0 transform -rotate-12 animate-float">
                 <ChatDoctorButton text="Chat a Doctor" />
               </div>
-              <div className="mt-10  transform rotate-12">
+              <div className="mt-10 transform rotate-12 animate-floatHorizontal">
                 <ChatDoctorButton text="Book Appointment" />
               </div>
-              <div className=" transform -rotate-12">
+              <div className="transform -rotate-12 animate-float">
                 <ChatDoctorButton text="Consultation" />
               </div>
             </div>

@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+/* App.css */
+.app-container {
+    display: flex; /* Use flexbox to create a row layout */
+  }
+  
+  /* Style for the navbar */
+  .navbar {
+    width: 250px; /* Set a width for the navbar */
+  }
+  
+  /* Main content area */
+  .main-content {
+    flex: 1; /* This will take the remaining space */
+    padding: 20px; /* Add some padding */
+  }
+  

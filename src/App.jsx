@@ -1,51 +1,22 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Services from "./components/Services";
-import Review from "./components/Review";
-import Consultation from "./components/Consultation";
+import MainPage from "./MainPage";
 import Signup from "./components/Signup";
+import SignUpDoc from "./components/SignUpDoc";
+import ForgotPassword from "./components/password/ForgotPassword";
+import ResetPassword from "./components/password/ResetPassword";
+import SetNewPassword from "./components/password/SetNewPassword";
+import PasswordSuccess from "./components/password/PasswordSuccess";
 import Login from "./components/Login";
 import OnBoarding from "./components/OnBoarding";
-import Footer from "./components/Footer";
-import heroImage from "./assets/hero-image.png";
-
+import EmailVerification from "./components/password/EmailVerification";
 import "./index.css";
+import PaymentConfirmation from "./components/30-35/PaymentConfirmation";
+import PatientEmr from "./components/30-35/PatientEmr";
+import PatientAppointment from "./components/30-35/PatientAppointment";
+import DocCall from "./components/30-35/DocCall";
+import DocVideoCall from "./components/30-35/DocVideoCall";
 
-function MainPage() {
-  return (
-    <div>
-      <div
-        className="relative bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroImage})` }}
-      >
-        <div className="absolute inset-0 bg-opacity-30 bg-white"></div>{" "}
-        {/* Add overlay */}
-        <Header />
-        <main className="relative z-10">
-          <section id="hero">
-            <Hero />
-          </section>
-        </main>
-      </div>
-      <section id="about">
-        <About />
-      </section>
-      <section id="services">
-        <Services />
-      </section>
-      <section id="review">
-        <Review />
-      </section>
-      <section id="consultation">
-        <Consultation />
-      </section>
-      <Footer />
-    </div>
-  );
-}
 
 function App() {
   return (
@@ -53,9 +24,19 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/forgetpassword" element={<ForgotPassword />} />
+        <Route path="/emailverify" element={<EmailVerification />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/set-password" element={<SetNewPassword />} />
+        <Route path="/password-success" element={<PasswordSuccess />} />
+        <Route path="/signupdoc" element={<SignUpDoc />} />
         <Route path="/login" element={<Login />} />
         <Route path="/onboarding" element={<OnBoarding />} />
-        {/* Add other routes here */}
+        <Route path="/paymentconfirmation" element={<PaymentConfirmation />} />
+        <Route path="/patientemr" element={<PatientEmr />} />
+        <Route path="/patientappointment" element={<PatientAppointment />} />
+        <Route path="/doccall" element={<DocCall />} />
+        <Route path="/docvideocall" element={<DocVideoCall />} />
       </Routes>
     </Router>
   );

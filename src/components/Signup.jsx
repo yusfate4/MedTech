@@ -4,6 +4,8 @@ import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import americanDoctor from "../assets/american-doctor.png";
 import { FaGoogle, FaFacebook } from "react-icons/fa";
+import LinkBack from "./buttons/LinkBack";
+
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -56,6 +58,7 @@ const SignUp = () => {
       </div>
       <div className="px-6 md:px-16 lg:px-32 py-14 bg-white flex items-center justify-center w-full ">
         <div className="w-full ">
+          <LinkBack />
           <div className="flex flex-col items-center pb-8 md:flex-row md:justify-end gap-4 md:gap-10">
             <h2 className="text-2xl text-black font-bold mb-4 md:mb-6 text-center md:text-left">
               Create Account
@@ -64,7 +67,7 @@ const SignUp = () => {
             <button
               type="submit"
               className="w-full md:w-1/3 bg-[#064B75] text-white py-2 rounded-md hover:bg-blue-800 transition-colors duration-300"
-            >
+              onClick={() => navigate("/signupdoc")} >
               Register as a doctor
             </button>
           </div>

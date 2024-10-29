@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -37,9 +38,23 @@ const SignUp = () => {
         .oneOf([Yup.ref("password"), null], "Passwords must match")
         .required("Confirm password is required"),
     }),
-    onSubmit: (values) => {
-      console.log(values);
-      navigate("/onboarding");
+    onSubmit: async (values) => {
+      try {
+        const response = await axios.post("http://127.0.0.1:8000/accounts/api/create_user_profile/", {
+          first_name: values.firstName,
+          last_name: values.lastName,
+          email: values.email,
+          phone: values.phone,
+          gender: values.gender,
+          date_of_birth: values.dateOfBirth,
+          password: values.password,
+        });
+        
+        console.log(response.data.message); // Check success message
+        navigate("/onboarding"); // Navigate on success
+      } catch (error) {
+        console.error(error.response ? error.response.data : error.message); // Check error response
+      }
     },
   });
 

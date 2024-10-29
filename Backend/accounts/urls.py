@@ -1,11 +1,6 @@
 from django.urls import path
-from .views import signup
+from .views import create_user_profile
 
 urlpatterns = [
-    # User
-    path('signup/', signup, name='signup'),
-
-    # vendor
-    # path('vendor/register/', VendorRegisterView.as_view(), name='register-vendor'),
-
+    path('api/create_user_profile/', create_user_profile, name='create_user_profile')
 ]

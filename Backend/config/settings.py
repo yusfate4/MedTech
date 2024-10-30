@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-p(*g+^dc=ka1t3(b9d0!m98zmurwy0!hkm^!9p3k*a*5f6wqc@'
+SECRET_KEY = 'django-insecure-z=bzwf_mk@+q)0zxwtvk0sim7&rh#jhd83_jpskbs)_%z^dek6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -42,12 +42,17 @@ INSTALLED_APPS = [
     'accounts',
     'rest_framework',
     'corsheaders',
-]
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:5173',  # replace with your frontend's URL
+    'rest_framework.authtoken',
 ]
 
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:5173',  # Add your React app's URL
+]
+
+AUTH_USER_MODEL = 'accounts.User'  
+
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware', # added
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -55,9 +60,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # local middleware
-    'corsheaders.middleware.CorsMiddleware',
-
 ]
 
 ROOT_URLCONF = 'config.urls'

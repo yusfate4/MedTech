@@ -1,20 +1,99 @@
+# views.py
+from django.contrib.auth import get_user_model
 from rest_framework import status
-from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import UserProfile
-from .serializers import UserProfileSerializer
-from django.contrib.auth.hashers import make_password
+from rest_framework.views import APIView
+from rest_framework.permissions import AllowAny
+from rest_framework.authtoken.models import Token
 
-@api_view(['POST'])
-def create_user_profile(request):
-    data = request.data
-    data['password'] = make_password(data['password'])  # Hash the password
-    
-    serializer = UserProfileSerializer(data=data)
-    if serializer.is_valid():
-        serializer.save()
-        return Response({"message": "User profile created successfully"}, status=status.HTTP_201_CREATED)
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+from .models import User, UserProfile, DoctorProfile
+from .serializers import UserSerializer, UserProfileSerializer, DoctorProfileSerializer
+from django.db import transaction
+
+User = get_user_model()  # Reference to the custom user model
+
+# User Signup View
+class UserSignupView(APIView):
+    permission_classes = [AllowAny]
+
+    @transaction.atomic
+    def post(self, request, *args, **kwargs):
+        # Extract user and profile data from request
+        user_data = {
+            "first_name": request.data.get("first_name"),
+            "last_name": request.data.get("last_name"),
+            "email": request.data.get("email"),
+            "password": request.data.get("password")
+        }
+        profile_data = {
+            "phone": request.data.get("phone"),
+            "gender": request.data.get("gender"),
+            "date_of_birth": request.data.get("date_of_birth")
+        }
+
+        # Validate and save the user
+        user_serializer = UserSerializer(data=user_data)
+        if user_serializer.is_valid():
+            user = user_serializer.save()
+            user.set_password(user.password)  # Hash the password
+            user.save()
+            
+            # Validate and save the user profile
+            profile_serializer = UserProfileSerializer(data=profile_data)
+            if profile_serializer.is_valid():
+                profile_serializer.save(user=user)  # Link profile to user
+                return Response({
+                    "user": user_serializer.data,
+                    "profile": profile_serializer.data,
+                    "token": Token.objects.create(user=user).key
+                }, status=status.HTTP_201_CREATED)
+            else:
+                user.delete()  # Clean up user if profile data is invalid
+                return Response(profile_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(user_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-# add doctor views
+# Doctor Signup View
+class DoctorSignupView(APIView):
+    permission_classes = [AllowAny]
+
+    @transaction.atomic
+    def post(self, request, *args, **kwargs):
+        # Extract user and profile data from request
+        user_data = {
+            "first_name": request.data.get("first_name"),
+            "last_name": request.data.get("last_name"),
+            "email": request.data.get("email"),
+            "password": request.data.get("password")
+        }
+        profile_data = {
+            "phone": request.data.get("phone"),
+            "gender": request.data.get("gender"),
+            "date_of_birth": request.data.get("date_of_birth"),
+            "current_address": request.data.get("currentAddress"),
+            "qualification": request.data.get("qualification"),
+            "specialization": request.data.get("specialization"),
+            "resume": request.data.get("resume"),
+            "license": request.data.get("license")
+        }
+
+        # Validate and save the user
+        user_serializer = UserSerializer(data=user_data)
+        if user_serializer.is_valid():
+            user = user_serializer.save()
+            user.set_password(user.password)  # Hash the password
+            user.save()
+
+            # Validate and save the doctor profile
+            profile_serializer = DoctorProfileSerializer(data=profile_data)
+            if profile_serializer.is_valid():
+                profile_serializer.save(user=user)  # Link profile to user
+                return Response({
+                    "user": user_serializer.data,
+                    "profile": profile_serializer.data,
+                    "token": Token.objects.create(user=user).key
+                }, status=status.HTTP_201_CREATED)
+            else:
+                user.delete()  # Clean up user if profile data is invalid
+                return Response(profile_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(user_serializer.errors, status=status.HTTP_400_BAD_REQUEST)

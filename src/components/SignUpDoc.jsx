@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -44,9 +45,28 @@ const SignUp = () => {
       resume: Yup.mixed().required("Resume is required"),
       license: Yup.mixed().required("License is required"),
     }),
-    onSubmit: (values) => {
-      console.log(values);
-      navigate("/onboarding");
+    onSubmit: async (values) => {
+      try {
+        const response = await axios.post("http://127.0.0.1:8000/accounts/signup/doctor/", {
+          first_name: values.firstName,
+          last_name: values.lastName,
+          email: values.email,
+          phone: values.phone,
+          gender: values.gender,
+          date_of_birth: values.dateOfBirth,
+          password: values.password,
+          current_address: values.currentAddress,
+          qualification: values.qualification,
+          specialization: values.specialization,
+          resume: values.resume,
+          license: values.license,
+        });
+        
+        console.log(response.data.message); // Check success message
+        navigate("/onboarding"); // Navigate on success
+      } catch (error) {
+        console.error(error.response ? error.response.data : error.message); // Check error response
+      }
     },
   });
 
@@ -71,7 +91,7 @@ const SignUp = () => {
             </h2>
           </div>
 
-          <form onSubmit={formik.handleSubmit} className="space-y-4">
+          <form onSubmit={formik.handleSubmit} className="space-y-4" encType="multipart/form-data" >
             <div className="flex flex-col md:flex-row md:space-x-4">
               <div className="w-full md:w-1/2">
                 <input

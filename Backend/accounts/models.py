@@ -1,16 +1,23 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from .managers import CustomUserManager  # Import your custom manager
 
 class User(AbstractUser):
     is_user_profile = models.BooleanField(default=False)
     is_doctor_profile = models.BooleanField(default=False)
 
+    username = None  # Remove the username field
+    email = models.EmailField(unique=True)
 
-    # username = models.CharField(max_length=150)
-    # email = models.EmailField(unique=True)  # Make email the unique identifier
+    USERNAME_FIELD = 'email'  # Use email as the unique identifier
+    REQUIRED_FIELDS = []  # Superusers won't need any additional fields
 
-    # USERNAME_FIELD = 'email'  # Set email as the unique identifier
-    # REQUIRED_FIELDS = []  # No additional fields are required by default
+    objects = CustomUserManager()  # Use the custom manager
+
+    def __str__(self):
+        return self.email
+    
+
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='user_profile')
@@ -26,11 +33,13 @@ class DoctorProfile(models.Model):
     phone = models.CharField(max_length=15)
     gender = models.CharField(max_length=10)
     date_of_birth = models.DateField()
-    current_address = models.TextField()
+    current_address = models.TextField(null=True, blank=True)  # Allows null and empty values
     qualification = models.CharField(max_length=100)
     specialization = models.CharField(max_length=100)
-    resume = models.FileField(upload_to='resumes/')
-    license = models.FileField(upload_to='licenses/')
+    resume = models.FileField(upload_to='resumes/', null=True, blank=True)
+    license = models.FileField(upload_to='licenses/', null=True, blank=True)
+
 
     def __str__(self):
-        return self.user.first_name
+        return self.user.first_name + ' ' + self.user.last_name
+

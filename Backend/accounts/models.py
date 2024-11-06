@@ -11,7 +11,6 @@ class User(AbstractUser):
 
     USERNAME_FIELD = 'email'  # Use email as the unique identifier
     REQUIRED_FIELDS = []  # Superusers won't need any additional fields
-
     objects = CustomUserManager()  # Use the custom manager
 
     def __str__(self):
@@ -38,7 +37,6 @@ class DoctorProfile(models.Model):
     specialization = models.CharField(max_length=100)
     resume = models.FileField(upload_to='resumes/', null=True, blank=True)
     license = models.FileField(upload_to='licenses/', null=True, blank=True)
-
 
     def __str__(self):
         return self.user.first_name + ' ' + self.user.last_name

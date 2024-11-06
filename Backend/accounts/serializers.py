@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.contrib.auth import authenticate
 from rest_framework import serializers
 from .models import UserProfile, DoctorProfile
 
@@ -11,14 +12,13 @@ class UserSerializer(serializers.ModelSerializer):
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
-        user = User(
+        # Use create_user to handle password hashing
+        return User.objects.create_user(
             email=validated_data['email'],
             first_name=validated_data['first_name'],
-            last_name=validated_data['last_name']
+            last_name=validated_data['last_name'],
+            password=validated_data['password']
         )
-        user.set_password(validated_data['password'])  # Hash the password
-        user.save()
-        return user
 
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
@@ -29,3 +29,21 @@ class DoctorProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = DoctorProfile
         fields = ['phone', 'gender', 'date_of_birth', 'current_address', 'qualification', 'specialization', 'resume', 'license']
+
+
+# Login Serializer
+class LoginSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+    password = serializers.CharField(write_only=True)
+
+    def validate(self, data):
+        email = data.get("email")
+        password = data.get("password")
+
+        # Use authenticate to validate the password
+        user = authenticate(username=email, password=password)
+        if user is None:
+            raise serializers.ValidationError("Invalid email or password")
+        
+        data["user"] = user
+        return data

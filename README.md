@@ -1,27 +1,43 @@
 OVERVIEW:
     This is built as part of the backend of the MEDTECH App called Tell-A-Doc.
 
-TECH STACK:
-    This project was built using Python version 3.10.10. 
-    OTHER REQUIREMENTS include: asgiref==3.8.1
-    Django==5.0.7
-    sqlparse==0.5.0
-    typing_extensions==4.12.2
-    tzdata==2024.1
+### Backend Installation
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/yusfate4/MedTech.git
+   cd Backend
 
-SET UP
-    Clone the repository
-    Set up a virtual environment
-    Activate the virtual environment
-    install/Update Pip
-    install Django and other dependencies.
-    Navigate to the project folder using the command: "cd mysite_Tell-A-Doc"
-  
-APPLY MIGRATIONS AND START SERVER:
-    Apply migrations using the command: "python manage.py migrate
-    Start the server using the command: "python manage.py runserver"
+2. **Set Up a Virtual Environment**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-OPEN BROWSER TO VIEW THE PROJECT:
-    Using any of your Browsers open the localhost url pointing to the port number you have chosen or the default port: 8000
-    Then add "../consult/" to the localhost url to view the consult app.
-    Alternatively, add "../Admin/" to the localhost url to view the Superadmin page (username and password is provided to the Project Manager)
+3. **Install Dependencies**
+   ```bash
+   pip install -r requirements.txt
+
+4. **Run Migrations**
+   ```bash
+   python manage.py migrate
+
+5. **Run the Application**
+   ```bash
+   python manage.py runserver
+
+6. **Open your web browser and navigate to http://127.0.0.1:8000/ to use the application.**
+   
+
+### Frontend Installation
+1. **Change directory**
+   ```bash
+   cd src
+
+2. **Install Dependencies**
+   ```bash
+   npm install
+
+3. **Run the Application**
+   ```bash
+   npm run dev
+
+4. **Open your web browser and navigate to http://localhost:5173/ to use the application.**

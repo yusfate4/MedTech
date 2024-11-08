@@ -47,7 +47,7 @@ const SignUp = () => {
     }),
     onSubmit: async (values) => {
       try {
-        const response = await axios.post("http://127.0.0.1:8000/accounts/signup/doctor/", {
+        const response = await axios.post("http://127.0.0.1:8000/accounts/api/signup/doctor/", {
           first_name: values.firstName,
           last_name: values.lastName,
           email: values.email,

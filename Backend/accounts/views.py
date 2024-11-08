@@ -1,14 +1,13 @@
-# views.py
 from django.contrib.auth import get_user_model
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny
-from rest_framework.authtoken.models import Token
-
+from rest_framework.authtoken.models import Token  # Only if using token-based authentication
 from .models import User, UserProfile, DoctorProfile
-from .serializers import UserSerializer, UserProfileSerializer, DoctorProfileSerializer
+from .serializers import UserSerializer, UserProfileSerializer, DoctorProfileSerializer, LoginSerializer
 from django.db import transaction
+
 
 User = get_user_model()  # Reference to the custom user model
 
@@ -30,6 +29,8 @@ class UserSignupView(APIView):
             "gender": request.data.get("gender"),
             "date_of_birth": request.data.get("date_of_birth")
         }
+
+        # print("Received data:", request.data)
 
         # Validate and save the user
         user_serializer = UserSerializer(data=user_data)
@@ -97,3 +98,17 @@ class DoctorSignupView(APIView):
                 user.delete()  # Clean up user if profile data is invalid
                 return Response(profile_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         return Response(user_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+# Login View
+class LoginView(APIView):
+    def post(self, request):
+        print("Received data:", request.data)
+        serializer = LoginSerializer(data=request.data)
+
+        if serializer.is_valid():
+            user = serializer.validated_data["user"]
+            token, created = Token.objects.get_or_create(user=user)  # Generate token if needed
+            return Response({"token": token.key, "message": "Login successful"}, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

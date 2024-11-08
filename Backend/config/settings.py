@@ -49,6 +49,12 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',  # Add your React app's URL
 ]
 
+
+AUTHENTICATION_BACKENDS = [
+    'accounts.backends.EmailBackend',  # Replace 'yourapp' with the actual app name
+    'django.contrib.auth.backends.ModelBackend',  # Keep ModelBackend as a fallback
+]
+
 AUTH_USER_MODEL = 'accounts.User'  
 
 MIDDLEWARE = [

@@ -8,38 +8,78 @@ import { FaGoogle, FaFacebook } from "react-icons/fa";
 const SignUp = () => {
   const navigate = useNavigate();
 
+  // const formik = useFormik({
+  //   initialValues: {
+  //     firstName: "",
+  //     lastName: "",
+  //     email: "",
+  //     phone: "",
+  //     gender: "",
+  //     dateOfBirth: "",
+  //     password: "",
+  //     confirmPassword: "",
+  //   },
   const formik = useFormik({
     initialValues: {
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      gender: "",
-      dateOfBirth: "",
-      password: "",
-      confirmPassword: "",
+        email: "",
+        password: "",
     },
     validationSchema: Yup.object({
-      firstName: Yup.string().required("First name is required"),
-      lastName: Yup.string().required("Last name is required"),
-      email: Yup.string()
-        .email("Invalid email address")
-        .required("Email is required"),
-      phone: Yup.string().required("Phone number is required"),
-      gender: Yup.string().required("Gender is required"),
-      dateOfBirth: Yup.date().required("Date of birth is required"),
-      password: Yup.string()
-        .min(6, "Password must be at least 6 characters")
-        .required("Password is required"),
-      confirmPassword: Yup.string()
-        .oneOf([Yup.ref("password"), null], "Passwords must match")
-        .required("Confirm password is required"),
+        email: Yup.string().email("Invalid email address").required("Email is required"),
+        password: Yup.string().required("Password is required"),
     }),
-    onSubmit: (values) => {
-      console.log(values);
-      navigate("/onboarding");
-    },
-  });
+    onSubmit: async (values) => {
+      try {
+          const response = await fetch("http://localhost:8000/accounts/api/login/", {
+              method: "POST",
+              headers: {
+                  "Content-Type": "application/json",
+              },
+              body: JSON.stringify(values),
+          });
+  
+          const data = await response.json();
+  
+          if (response.ok) {
+              console.log("Login successful!", data);
+              // Save the token (e.g., in local storage)
+              localStorage.setItem("token", data.token);
+              // Navigate to onboarding after successful login
+              navigate("/onboarding");
+          } else {
+              console.error("Login failed:", data);
+              alert("Invalid email or password");
+          }
+      } catch (error) {
+          console.error("An error occurred:", error);
+      }
+  },
+});
+
+    
+
+
+  //   validationSchema: Yup.object({
+  //     firstName: Yup.string().required("First name is required"),
+  //     lastName: Yup.string().required("Last name is required"),
+  //     email: Yup.string()
+  //       .email("Invalid email address")
+  //       .required("Email is required"),
+  //     phone: Yup.string().required("Phone number is required"),
+  //     gender: Yup.string().required("Gender is required"),
+  //     dateOfBirth: Yup.date().required("Date of birth is required"),
+  //     password: Yup.string()
+  //       .min(6, "Password must be at least 6 characters")
+  //       .required("Password is required"),
+  //     confirmPassword: Yup.string()
+  //       .oneOf([Yup.ref("password"), null], "Passwords must match")
+  //       .required("Confirm password is required"),
+  //   }),
+  //   onSubmit: (values) => {
+  //     console.log(values);
+  //     navigate("/onboarding");
+  //   },
+  // });
 
   return (
     <div className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-white">
@@ -102,10 +142,10 @@ const SignUp = () => {
             <button
               type="submit"
               className="w-full bg-[#064B75] text-white py-2 rounded-md hover:bg-blue-800"
-              onClick={() => navigate("/onboarding")}
             >
               Continue
             </button>
+
           </form>
           <div className="mt-3 text-right">
           <a

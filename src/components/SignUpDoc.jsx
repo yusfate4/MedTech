@@ -23,6 +23,8 @@ const SignUp = () => {
       specialization: "",
       resume: null,
       license: null,
+      user_type: "doctor", // Add user_type field
+
     },
     validationSchema: Yup.object({
       firstName: Yup.string().required("First name is required"),
@@ -46,42 +48,6 @@ const SignUp = () => {
       license: Yup.mixed().required("License is required"),
     }),
 
-
-
-
-
-
-
-
-
-    // onSubmit: async (values) => {
-    //   const formData = new FormData();
-    //   formData.append('first_name', values.firstName);
-    //   formData.append('last_name', values.lastName);
-    //   // ...
-    //   formData.append('resume', values.resume);
-    //   formData.append('license', values.license);
-    
-    //   try {
-    //     const response = await axios.post('(link unavailable)', formData, {
-    //       headers: {
-    //         'Content-Type': 'multipart/form-data',
-    //       },
-    //     });
-    //     // ...
-    //   } catch (error) {
-    //     // ...
-    //   }
-    // },
-    
-
-
-
-
-
-
-
-
     onSubmit: async (values) => {
       const formData = new FormData();
       formData.append('first_name', values.firstName);
@@ -97,9 +63,10 @@ const SignUp = () => {
       formData.append('specialization', values.specialization);
       formData.append('resume', values.resume);
       formData.append('license', values.license);
+      formData.append('user_type', values.user_type); // Add user_type to form data
 
       try {
-        const response = await axios.post("http://127.0.0.1:8000/accounts/api/signup/doctor/", formData,{
+        const response = await axios.post("http://127.0.0.1:8000/accounts/api/signup/", formData,{
           headers: {
             'Content-Type': 'multipart/form-data',
           },
@@ -322,7 +289,7 @@ const SignUp = () => {
                 </div>
               ) : null}
             </div>
-            <div>
+            {/* <div>
               <input
                 type="text"
                 name="consultation"
@@ -337,8 +304,8 @@ const SignUp = () => {
                   {formik.errors.consultation}
                 </div>
               ) : null}
-            </div>
-            <div>
+            </div> */}
+            {/* <div>
               <input
                 type="text"
                 name="affiliated "
@@ -353,7 +320,7 @@ const SignUp = () => {
                   {formik.errors.affiliated}
                 </div>
               ) : null}
-            </div>
+            </div> */}
             {/* <div className="flex flex-col md:flex-row md:space-x-4">
               <div className="w-full md:w-1/2">
                 <input

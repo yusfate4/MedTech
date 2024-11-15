@@ -16,7 +16,11 @@ import PatientEmr from "./components/30-35/PatientEmr";
 import PatientAppointment from "./components/30-35/PatientAppointment";
 import DocCall from "./components/30-35/DocCall";
 import DocVideoCall from "./components/30-35/DocVideoCall";
-
+import LiveTracking from "./components/1-10/LiveTracking";
+import TrackPercel from "./components/1-10/TrackPercel";
+import PaymentWallet from "./components/1-10/PaymentWallet";
+import PatientWallet from "./components/1-10/PatientWallet";
+import PharmacyPage from "./components/1-10/PharmacyPage";
 
 function App() {
   return (
@@ -37,6 +41,11 @@ function App() {
         <Route path="/patientappointment" element={<PatientAppointment />} />
         <Route path="/doccall" element={<DocCall />} />
         <Route path="/docvideocall" element={<DocVideoCall />} />
+        <Route path="/payment" element={<PaymentWallet />} />
+        <Route path="/livetracking" element={<LiveTracking />} />
+        <Route path="/trackpercel" element={<TrackPercel />} />
+        <Route path="/patientwallet" element={<PatientWallet />} />
+        <Route path="/pharmacypage" element={<PharmacyPage />} />
       </Routes>
     </Router>
   );

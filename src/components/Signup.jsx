@@ -21,6 +21,8 @@ const SignUp = () => {
       dateOfBirth: "",
       password: "",
       confirmPassword: "",
+      user_type: "patient", // or "doctor" depending on the signup page
+
     },
     validationSchema: Yup.object({
       firstName: Yup.string().required("First name is required"),
@@ -40,7 +42,7 @@ const SignUp = () => {
     }),
     onSubmit: async (values) => {
       try {
-        const response = await axios.post("http://127.0.0.1:8000/accounts/api/signup/user/", {
+        const response = await axios.post("http://127.0.0.1:8000/accounts/api/signup/", {
           first_name: values.firstName,
           last_name: values.lastName,
           email: values.email,
@@ -48,6 +50,8 @@ const SignUp = () => {
           gender: values.gender,
           date_of_birth: values.dateOfBirth,
           password: values.password,
+          user_type: values.user_type, // Add user_type to the request body
+
         });
         
         console.log(response.data.message); // Check success message

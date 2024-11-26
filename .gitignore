@@ -13,6 +13,9 @@ bower_components
 
 *.sublime*
 
+licenses
+resumes
+media
 psd
 thumb
 sketch
@@ -194,5 +197,5 @@ poetry.toml
 
 # LSP config files
 pyrightconfig.json
-
+PRD.md
 # End of https://www.toptal.com/developers/gitignore/api/python

@@ -23,7 +23,7 @@ const SignUp = () => {
       specialization: "",
       resume: null,
       license: null,
-      user_type: "doctor", // Add user_type field
+      // user_type: "doctor", // Add user_type field
 
     },
     validationSchema: Yup.object({
@@ -63,10 +63,10 @@ const SignUp = () => {
       formData.append('specialization', values.specialization);
       formData.append('resume', values.resume);
       formData.append('license', values.license);
-      formData.append('user_type', values.user_type); // Add user_type to form data
+      // formData.append('user_type', values.user_type); // Add user_type to form data
 
       try {
-        const response = await axios.post("http://127.0.0.1:8000/accounts/api/signup/", formData,{
+        const response = await axios.post("http://127.0.0.1:8000/accounts/signup/doctor/", formData,{
           headers: {
             'Content-Type': 'multipart/form-data',
           },
